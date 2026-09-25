@@ -6,6 +6,7 @@ import argparse
 import json
 
 from .core import bench, check, fit, report, support_bundle
+from .lemonade import lemonade_probe
 
 
 def _print(data: dict) -> None:
@@ -22,6 +23,10 @@ def main() -> int:
     sub.add_parser("bench", help="run short low-resource benchmarks")
     sub.add_parser("check", help="check common lightweight dependencies")
     sub.add_parser("fit", help="show conservative workload guidance")
+    sub.add_parser(
+        "lemonade",
+        help="probe a local AMD Lemonade Server without sending prompts or files",
+    )
     support = sub.add_parser("support", help="write a redacted JSON support bundle")
     support.add_argument("path", nargs="?", default="support-leanlocal.json")
 
@@ -34,6 +39,8 @@ def main() -> int:
         _print(check())
     elif args.command == "fit":
         _print(fit())
+    elif args.command == "lemonade":
+        _print(lemonade_probe())
     elif args.command == "support":
         print(support_bundle(args.path))
     return 0
