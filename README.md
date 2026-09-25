@@ -20,13 +20,24 @@ predictable information. LeanLocal does not make medical or diagnostic claims.
 - `leanlocal bench` — short CPU, memory, and temporary-storage checks.
 - `leanlocal check` — read-only dependency/version checks.
 - `leanlocal fit` — conservative workload guidance from local resources.
+- `leanlocal lemonade` — privacy-minimised probe of a Lemonade Server on
+  `127.0.0.1:13305`; it sends no prompts and reads no user files.
 - `leanlocal support` — JSON support bundle you can inspect before sharing.
+
+## AMD Lemonade integration
+
+The optional `leanlocal lemonade` command is intentionally narrow. It checks
+only the local loopback interface and reads Lemonade health/model metadata.
+It does not send prompts, upload files, inspect private project data, or expose
+raw model names. This makes it useful for verifying that a local-first Lemonade
+setup is reachable while preserving LeanLocal's privacy-first defaults.
 
 ## Privacy by default
 
 Default output excludes usernames, hostnames, serial numbers, MAC addresses,
 IP addresses, Wi-Fi information, account details, file contents, and secrets.
-The core toolkit has no telemetry and makes no network requests.
+The core toolkit has no telemetry and makes no network requests. The optional
+Lemonade probe connects only to `127.0.0.1` on the local machine.
 
 ## Design principles
 
