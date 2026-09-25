@@ -40,6 +40,12 @@ Python 3.10+ on Debian/Ubuntu-derived Linux distributions.
 LeanLocal is not a remote-control system, autonomous-agent framework,
 workflow engine, orchestration platform, credential manager, or cloud service.
 
+## Supporting LeanLocal
+
+Sponsorship helps fund testing on older and low-spec Linux hardware, improve
+compatibility and documentation, and keep the core toolkit small, auditable,
+and free of telemetry or mandatory cloud dependencies.
+
 ## Status
 
 Pre-release 0.1 candidate. This repository is private until its release gate
