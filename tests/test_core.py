@@ -19,7 +19,9 @@ class ReportTests(unittest.TestCase):
     def test_report_excludes_identity_fields(self):
         text = json.dumps(report()).lower()
         self.assertNotIn(socket.gethostname().lower(), text)
-        self.assertNotIn(os.environ.get("USER", "").lower(), text)
+        user = os.environ.get("USER", "").lower()
+        if user:
+            self.assertNotIn(user, text)
 
     def test_checks_are_read_only_shapes(self):
         data = check()
