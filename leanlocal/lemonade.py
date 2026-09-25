@@ -8,7 +8,6 @@ a Lemonade Server listening on the loopback interface.
 from __future__ import annotations
 
 import json
-from urllib.error import OSError as _UrlOSError
 from urllib.request import urlopen
 
 _BASE_URL = "http://127.0.0.1:13305"
